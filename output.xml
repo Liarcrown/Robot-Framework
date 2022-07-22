@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on darwin)" generated="20220722 14:21:55.150" rpa="false" schemaversion="3">
+<suite id="s1" name="Next" source="/Users/lisa/Desktop/robot framework/next.robot">
+<kw name="Open Browser" library="Selenium2Library" type="SETUP">
+<arg>https://news.tvbs.com.tw/</arg>
+<arg>firefox</arg>
+<arg>executable_path=./geckodriver</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220722 14:21:57.117" level="INFO">Opening browser 'firefox' to base url 'https://news.tvbs.com.tw/'.</msg>
+<msg timestamp="20220722 14:21:57.143" level="INFO">Firefox driver log is always forced to to: /Users/lisa/Desktop/robot framework/geckodriver-1.log</msg>
+<status status="PASS" starttime="20220722 14:21:57.116" endtime="20220722 14:23:39.372"/>
+</kw>
+<test id="s1-t1" name="My Test" line="13">
+<kw name="Search Article Template">
+<arg>${articleName1}</arg>
+<doc>Tempalte for search ithelp aritcle need give aritcle variable</doc>
+<kw name="Click Search Button">
+<doc>Click search button in ithelp home page</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 14:23:39.375" endtime="20220722 14:23:44.093"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 14:23:44.093" level="INFO">Clicking element 'xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div'.</msg>
+<status status="PASS" starttime="20220722 14:23:44.093" endtime="20220722 14:23:46.152"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:39.375" endtime="20220722 14:23:46.153"/>
+</kw>
+<kw name="Input Search Content">
+<arg>${article}</arg>
+<doc>Input search content in search bar</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 14:23:46.153" endtime="20220722 14:23:46.433"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/input</arg>
+<arg>${article}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220722 14:23:46.434" level="INFO">Typing text '童年' into text field 'xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/input'.</msg>
+<status status="PASS" starttime="20220722 14:23:46.433" endtime="20220722 14:23:46.821"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:46.153" endtime="20220722 14:23:46.822"/>
+</kw>
+<kw name="Click Submit Button">
+<doc>Click search submit button in search area</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/div</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 14:23:46.822" endtime="20220722 14:23:46.876"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/div</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 14:23:46.876" level="INFO">Clicking element 'xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/div'.</msg>
+<status status="PASS" starttime="20220722 14:23:46.876" endtime="20220722 14:23:50.695"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:46.822" endtime="20220722 14:23:50.696"/>
+</kw>
+<kw name="Verify Article Is Existing">
+<arg>${article}</arg>
+<doc>Verify search article is existing</doc>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>xpath=/html/body/div/main/div/article/div[2]/div[2]/ul/li[1]/a/h2</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 14:23:50.696" endtime="20220722 14:23:50.950"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${getArticle}</var>
+<arg>xpath=/html/body/div/main/div/article/div[2]/div[2]/ul/li[1]/a/h2</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220722 14:23:51.479" level="INFO">${getArticle} = 挺鼻塌陷變S型！30多歲帥男嚇到就醫　竟是童年這事釀禍</msg>
+<status status="PASS" starttime="20220722 14:23:50.950" endtime="20220722 14:23:51.479"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${getArticle}</arg>
+<arg>${article}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220722 14:23:51.479" endtime="20220722 14:23:51.480"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:50.696" endtime="20220722 14:23:51.480"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:39.374" endtime="20220722 14:23:51.480"/>
+</kw>
+<kw name="Search Article Template">
+<arg>${articleName2}</arg>
+<doc>Tempalte for search ithelp aritcle need give aritcle variable</doc>
+<kw name="Click Search Button">
+<doc>Click search button in ithelp home page</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 14:23:51.481" endtime="20220722 14:23:51.645"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 14:23:51.645" level="INFO">Clicking element 'xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div'.</msg>
+<status status="PASS" starttime="20220722 14:23:51.645" endtime="20220722 14:23:51.989"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:51.481" endtime="20220722 14:23:51.989"/>
+</kw>
+<kw name="Input Search Content">
+<arg>${article}</arg>
+<doc>Input search content in search bar</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 14:23:51.990" endtime="20220722 14:23:52.105"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/input</arg>
+<arg>${article}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220722 14:23:52.106" level="INFO">Typing text '世運' into text field 'xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/input'.</msg>
+<status status="PASS" starttime="20220722 14:23:52.105" endtime="20220722 14:23:52.158"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:51.990" endtime="20220722 14:23:52.159"/>
+</kw>
+<kw name="Click Submit Button">
+<doc>Click search submit button in search area</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/div</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 14:23:52.159" endtime="20220722 14:23:52.326"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/div</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 14:23:52.326" level="INFO">Clicking element 'xpath=/html/body/div/header/div/div[2]/div/div[2]/div[2]/form/div/div'.</msg>
+<status status="PASS" starttime="20220722 14:23:52.326" endtime="20220722 14:23:54.305"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:52.159" endtime="20220722 14:23:54.305"/>
+</kw>
+<kw name="Verify Article Is Existing">
+<arg>${article}</arg>
+<doc>Verify search article is existing</doc>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>xpath=/html/body/div/main/div/article/div[2]/div[2]/ul/li[1]/a/h2</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 14:23:54.306" endtime="20220722 14:23:54.430"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${getArticle}</var>
+<arg>xpath=/html/body/div/main/div/article/div[2]/div[2]/ul/li[1]/a/h2</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220722 14:23:54.452" level="INFO">${getArticle} = 世運會拔河、柔術隊返台　女子拔河開心帶回5連霸</msg>
+<status status="PASS" starttime="20220722 14:23:54.430" endtime="20220722 14:23:54.452"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${getArticle}</arg>
+<arg>${article}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220722 14:23:54.452" endtime="20220722 14:23:54.453"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:54.305" endtime="20220722 14:23:54.453"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:51.480" endtime="20220722 14:23:54.453"/>
+</kw>
+<status status="PASS" starttime="20220722 14:23:39.373" endtime="20220722 14:23:54.453"/>
+</test>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220722 14:23:54.454" endtime="20220722 14:24:05.193"/>
+</kw>
+<doc>Robot Framework Example</doc>
+<status status="PASS" starttime="20220722 14:21:55.152" endtime="20220722 14:24:05.193"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Next">Next</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
